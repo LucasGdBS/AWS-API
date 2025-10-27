@@ -1,12 +1,15 @@
 from fastapi import FastAPI, Query
+from decouple import config as env
 
 app = FastAPI()
+
+ENV_DATA = env('ENV_DATA')
 
 
 @app.get("/ping")
 async def ping():
     """Endpoint that returns pong ok message"""
-    return {"pong": "ok"}
+    return {"pong": ENV_DATA}
 
 
 @app.get("/uppercase")
