@@ -11,7 +11,7 @@ jobs:
     env:
       SVC_ID: 791c3405-34bd-43d6-8416-76bb4554e85e
       RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-      ENV_DATA: ${{ variables.ENV_DATA }}
+      ENV_DATA: ${{ vars.ENV_DATA }}
     steps:
       - name: Code Checkout
         uses: actions/checkout@v3
