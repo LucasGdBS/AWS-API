@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main, staging, dev]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: install requirements
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run lint
+        run: |
+          python -m compileall .
+      
+      - name: Run tests (dummy example)
+        run: |
+          echo "✅ CI rodou com sucesso!"
